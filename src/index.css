@@ -1,0 +1,172 @@
+@import "tailwindcss";
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap");
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+:root {
+  --color-bg: #000000;
+  --color-surface: #161616;
+  --color-brand-blue: #3448ff;
+  --color-brand-blue-hover: #2330aa;
+  --color-brand-green: #c3f967;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #97a3b6;
+  --color-border-subtle: rgba(255, 255, 255, 0.08);
+  --font-heading: "Montserrat", sans-serif;
+  --font-base: "Inter", sans-serif;
+  font-size: 16px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1600px) {
+  :root {
+    font-size: 1vw;
+  }
+}
+
+@layer base {
+  body {
+    font-family: var(--font-base);
+    background-color: var(--color-bg);
+    color: var(--color-text-primary);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+}
+
+@keyframes spin-laser {
+  from {
+    --angle: 0deg;
+  }
+  to {
+    --angle: 360deg;
+  }
+}
+
+.c-nav-pill {
+  transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.c-button-premium {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.625em 1.25em;
+  font-family: var(--font-heading);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: 9999px;
+  background-color: var(--color-bg);
+  color: white;
+  transition: background-color 0.3s;
+}
+
+.c-button-premium::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: conic-gradient(
+    from var(--angle),
+    transparent 75%,
+    var(--color-brand-blue)
+  );
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: destination-out;
+  animation: spin-laser 4s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.c-button-premium:hover::before {
+  opacity: 1;
+}
+.c-button-premium--primary {
+  background-color: var(--color-brand-blue);
+}
+.c-button-premium--primary:hover {
+  background-color: var(--color-brand-blue-hover) !important;
+}
+.c-button-premium--compact {
+  padding: 0.5em 1em;
+  gap: 0.5em;
+}
+
+.c-nav-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-surface);
+  background-image: linear-gradient(221deg, #161616, #0b0b0b 98%);
+  border-radius: 0.88rem;
+  padding: 1.25rem;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+  text-decoration: none;
+  color: white;
+  border: 1px solid var(--color-border-subtle);
+}
+
+.c-nav-card:hover {
+  background-color: #222;
+}
+
+.c-nav-card__img {
+  position: absolute;
+  pointer-events: none;
+  filter: saturate(0%);
+  opacity: 0.6;
+  transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.c-nav-card:hover .c-nav-card__img {
+  filter: saturate(100%);
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.c-nav-card__title {
+  font-family: var(--font-heading);
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.25rem;
+  z-index: 2;
+}
+
+.c-nav-card__desc {
+  font-family: var(--font-base);
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+  line-height: 1.4;
+  z-index: 2;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-subtle);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-secondary);
+}
