@@ -1,9 +1,11 @@
-export default function OmnistraLogo({ isHeaderHovered }) {
+export default function OmnistraLogo({ isHeaderHovered, forceDark }) {
+  const colorClass = forceDark ? "text-[#08144f]" : "text-white";
+
   return (
     <a
       href="/"
       aria-label="Omnistra home"
-      className="flex items-center gap-2.5 flex-shrink-0 mr-10 text-white hover:opacity-85 transition-opacity duration-300"
+      className={`flex items-center gap-2.5 flex-shrink-0 mr-10 ${colorClass} hover:opacity-85 transition-opacity duration-300`}
     >
       <span className="w-[1.75rem] h-[1.375rem] flex-shrink-0">
         <svg width="100%" height="100%" viewBox="0 0 31 24" fill="none">
@@ -17,7 +19,7 @@ export default function OmnistraLogo({ isHeaderHovered }) {
       </span>
       {!isHeaderHovered && (
         <span
-          className="text-[1.125rem] font-bold tracking-[-0.03em] text-white"
+          className={`text-[1.125rem] font-bold tracking-[-0.03em] ${colorClass}`}
           style={{ fontFamily: "var(--font-heading)" }}
         >
           chargeflow

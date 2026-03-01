@@ -176,6 +176,7 @@ const IntegrationsSection = () => {
 
   return (
     <div
+      id="integrations-section"
       ref={containerRef}
       className="relative h-[900px] overflow-hidden bg-white"
     >
