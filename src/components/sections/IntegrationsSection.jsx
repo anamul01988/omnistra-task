@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { INTEGRATIONS, RANGES } from "../../data/integrationsData";
 
@@ -24,16 +24,22 @@ const BrandIcon = ({ opacity, scale }) => (
   </motion.div>
 );
 
-const LogoCard = ({ item, progress, scale, opacity }) => {
-  const x = useTransform(progress, RANGES.LOGOS_MOVE, [item.x, 0]);
-  const y = useTransform(progress, RANGES.LOGOS_MOVE, [item.y, 0]);
+const LogoCard = ({ item, progress, scale, opacity, distanceFactor }) => {
+  const x = useTransform(progress, RANGES.LOGOS_MOVE, [
+    item.x * distanceFactor,
+    0,
+  ]);
+  const y = useTransform(progress, RANGES.LOGOS_MOVE, [
+    item.y * distanceFactor,
+    0,
+  ]);
 
   return (
     <motion.div
       style={{ x, y, scale, opacity, left: "50%", top: "50%" }}
       className="absolute -translate-x-1/2 -translate-y-1/2"
     >
-      <div className="bg-white p-5 md:p-6 rounded-[32px] shadow-xl w-24 h-24 md:w-36 md:h-36 flex items-center justify-center border border-white transition-all transform hover:rotate-6">
+      <div className="bg-white p-5 md:p-6 rounded-[32px] shadow-xl w-20 h-20 md:w-36 md:h-36 flex items-center justify-center border border-white transition-all transform hover:rotate-6">
         <img
           src={item.src}
           alt={item.name}
@@ -46,6 +52,29 @@ const LogoCard = ({ item, progress, scale, opacity }) => {
 
 const IntegrationsSection = () => {
   const containerRef = useRef(null);
+  const [distanceFactor, setDistanceFactor] = useState(() => {
+    if (typeof window === "undefined") return 1;
+    const width = window.innerWidth;
+    if (width < 480) return 0.28;
+    if (width < 768) return 0.45;
+    if (width < 1024) return 0.7;
+    return 1;
+  });
+
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      if (width < 480) setDistanceFactor(0.28);
+      else if (width < 768) setDistanceFactor(0.45);
+      else if (width < 1024) setDistanceFactor(0.7);
+      else setDistanceFactor(1);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"],
@@ -126,8 +155,8 @@ const IntegrationsSection = () => {
                 key={`line-${item.id}`}
                 x1="50%"
                 y1="50%"
-                x2={`calc(50% + ${item.x}px)`}
-                y2={`calc(50% + ${item.y}px)`}
+                x2={`calc(50% + ${item.x * distanceFactor}px)`}
+                y2={`calc(50% + ${item.y * distanceFactor}px)`}
                 stroke="url(#lineGrad)"
                 strokeWidth="1.5"
                 strokeDasharray="4 6"
@@ -173,6 +202,7 @@ const IntegrationsSection = () => {
                 progress={smoothProgress}
                 scale={logoScale}
                 opacity={logoOpacity}
+                distanceFactor={distanceFactor}
               />
             ))}
           </div>
