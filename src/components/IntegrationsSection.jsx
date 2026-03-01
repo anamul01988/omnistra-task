@@ -223,7 +223,10 @@ const IntegrationsSection = () => {
             style={{ opacity: textOpacity, scale: textScale, y: textY }}
             className="text-center px-6 max-w-4xl"
           >
-            <h2 className="text-[44px] md:text-[68px] font-bold tracking-tight text-[#08144f] mb-8 leading-[1.05]">
+            <h2
+              style={{ fontFamily: "var(--font-heading)" }}
+              className="text-[44px] md:text-[68px] font-bold tracking-tight text-[#08144f] mb-8 leading-[1.05]"
+            >
               One platform, <br />
               <span className="text-[#0145f2]">unlimited integrations</span>
             </h2>

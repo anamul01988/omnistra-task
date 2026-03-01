@@ -47,11 +47,11 @@
   }
 }
 
-.c-nav-pill {
+.navbar-pill {
   transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-.c-button-premium {
+.btn-premium {
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -68,7 +68,7 @@
   transition: background-color 0.3s;
 }
 
-.c-button-premium::before {
+.btn-premium::before {
   content: "";
   position: absolute;
   inset: -1px;
@@ -93,21 +93,21 @@
   pointer-events: none;
 }
 
-.c-button-premium:hover::before {
+.btn-premium:hover::before {
   opacity: 1;
 }
-.c-button-premium--primary {
+.btn-premium--primary {
   background-color: var(--color-brand-blue);
 }
-.c-button-premium--primary:hover {
+.btn-premium--primary:hover {
   background-color: var(--color-brand-blue-hover) !important;
 }
-.c-button-premium--compact {
+.btn-premium--compact {
   padding: 0.5em 1em;
   gap: 0.5em;
 }
 
-.c-nav-card {
+.nav-card {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -122,11 +122,11 @@
   border: 1px solid var(--color-border-subtle);
 }
 
-.c-nav-card:hover {
+.nav-card:hover {
   background-color: #222;
 }
 
-.c-nav-card__img {
+.nav-card__img {
   position: absolute;
   pointer-events: none;
   filter: saturate(0%);
@@ -134,13 +134,13 @@
   transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-.c-nav-card:hover .c-nav-card__img {
+.nav-card:hover .nav-card__img {
   filter: saturate(100%);
   opacity: 1;
   transform: scale(1.05);
 }
 
-.c-nav-card__title {
+.nav-card__title {
   font-family: var(--font-heading);
   font-size: 1.125rem;
   font-weight: 700;
@@ -149,7 +149,7 @@
   z-index: 2;
 }
 
-.c-nav-card__desc {
+.nav-card__desc {
   font-family: var(--font-base);
   font-size: 0.8125rem;
   color: var(--color-text-secondary);

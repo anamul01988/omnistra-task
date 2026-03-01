@@ -12,12 +12,12 @@ function ProductCard({ item, isLight }) {
     <motion.a
       href={`/products/${item.id}`}
       transition={{ duration: 0.5, ease: [0.19, 1, 0.22, 1] }}
-      className={`c-nav-card min-w-0 h-[19.625em] group !shadow-none ${cardBg}`}
+      className={`nav-card min-w-0 h-[19.625em] group !shadow-none ${cardBg}`}
     >
       <img
         src={item.imgUrl}
         alt=""
-        className="c-nav-card__img absolute bottom-[-2.5rem] left-0 w-full h-[18.75rem] object-cover"
+        className="nav-card__img absolute bottom-[-2.5rem] left-0 w-full h-[18.75rem] object-cover"
         style={{
           WebkitMaskImage:
             "radial-gradient(circle at center 70%, black 10%, transparent 85%)",

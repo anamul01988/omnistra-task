@@ -152,7 +152,7 @@ export default function Navbar() {
         onMouseLeave={() => setHovered(false)}
       >
         <div
-          className="flex items-center justify-between w-full h-[4rem] c-nav-pill shadow-2xl transition-colors duration-500"
+          className="flex items-center justify-between w-full h-[4rem] navbar-pill shadow-2xl transition-colors duration-500"
           style={shellStyles}
         >
           <Logo isHeaderHovered={hovered || isLight} forceDark={isLight} />
@@ -204,7 +204,7 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-[1rem] ml-auto">
             <a
               href="#"
-              className={`c-button-premium c-button-premium--compact group ${isLight ? "text-[#08144f] border-[#08144f]/10" : ""}`}
+              className={`btn-premium btn-premium--compact group ${isLight ? "text-[#08144f] border-[#08144f]/10" : ""}`}
             >
               <span>Sign In</span>
               <span className="w-[12px] h-[12px] opacity-60 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
@@ -213,7 +213,7 @@ export default function Navbar() {
             </a>
             <a
               href="#"
-              className="c-button-premium c-button-premium--primary c-button-premium--compact group font-black"
+              className="btn-premium btn-premium--primary btn-premium--compact group font-black"
             >
               <span>Sign Up</span>
               <span className="w-[12px] h-[12px] opacity-60 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">

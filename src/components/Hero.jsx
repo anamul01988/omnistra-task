@@ -79,7 +79,7 @@ export default function Hero() {
         >
           <a
             href="#"
-            className="c-nav-button-premium c-nav-button-premium--primary px-8 py-4 text-[15px] rounded-xl overflow-hidden font-bold"
+            className="btn-premium btn-premium--primary px-8 py-4 text-[15px] rounded-xl overflow-hidden font-bold"
           >
             Get Started Free
           </a>

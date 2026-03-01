@@ -84,7 +84,7 @@ export default function MobileMenu({ isOpen, setOpen }) {
           <div className="flex gap-[1rem] mb-[1.5rem]">
             <a
               href="#"
-              className="c-button-premium c-button-premium--compact flex-1 group"
+              className="btn-premium btn-premium--compact flex-1 group"
             >
               <span>Sign In</span>
               <span className="w-[12px] h-[12px] opacity-60">
@@ -93,7 +93,7 @@ export default function MobileMenu({ isOpen, setOpen }) {
             </a>
             <a
               href="#"
-              className="c-button-premium c-button-premium--primary c-button-premium--compact flex-1 group"
+              className="btn-premium btn-premium--primary btn-premium--compact flex-1 group"
             >
               <span>Sign Up</span>
               <span className="w-[12px] h-[12px] opacity-60">
@@ -111,18 +111,18 @@ export default function MobileMenu({ isOpen, setOpen }) {
                   <a
                     key={item.id}
                     href={`/products/${item.id}`}
-                    className="c-nav-card min-h-[8.5rem] p-[1.25rem]"
+                    className="nav-card min-h-[8.5rem] p-[1.25rem]"
                   >
                     <img
                       src={item.imgUrl}
-                      className="c-nav-card__img absolute right-[-5rem] h-full object-cover"
+                      className="nav-card__img absolute right-[-5rem] h-full object-cover"
                       alt=""
                     />
                     <div className="flex items-center gap-2 mb-1">
-                      <h4 className="c-nav-card__title !mb-0">{item.title}</h4>
+                      <h4 className="nav-card__title !mb-0">{item.title}</h4>
                       <NavTag tag={item.tag} />
                     </div>
-                    <p className="c-nav-card__desc max-w-[70%]">{item.desc}</p>
+                    <p className="nav-card__desc max-w-[70%]">{item.desc}</p>
                   </a>
                 ))}
               </div>
