@@ -8,6 +8,7 @@ export default function App() {
       <Navbar />
       <Hero />
       <IntegrationsSection />
+      <div className="h-[100vh] w-full bg-black"></div>
     </div>
   );
 }
