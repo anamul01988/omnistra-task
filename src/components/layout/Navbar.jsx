@@ -1,11 +1,11 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
-import Logo from "./Logo";
-import ProductDropdown from "./ProductDropdown";
-import SimpleDropdown from "./SimpleDropdown";
+import Logo from "../ui/Logo";
+import ProductDropdown from "../dropdowns/ProductDropdown";
+import SimpleDropdown from "../dropdowns/SimpleDropdown";
 import MobileMenu from "./MobileMenu";
-import { ArrowIcon } from "./ArrowIcon";
-import { simpleMenus } from "../data/navData";
+import { ArrowIcon } from "../ui/ArrowIcon";
+import { simpleMenus } from "../../data/navData";
 
 const menuConfig = [
   { id: "product", label: "Product", type: "dropdown" },

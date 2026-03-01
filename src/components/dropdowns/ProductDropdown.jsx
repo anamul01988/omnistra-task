@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
-import { productItems } from "../data/navData";
-import { NavTag } from "./NavTag";
-import { DropdownShell } from "./DropdownShell";
+import { productItems } from "../../data/navData";
+import { NavTag } from "../ui/NavTag";
+import { DropdownShell } from "../ui/DropdownShell";
 
 function ProductCard({ item, isLight }) {
   const textColor = isLight ? "text-[#08144f]" : "text-white";

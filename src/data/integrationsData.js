@@ -1,0 +1,82 @@
+export const INTEGRATIONS = [
+  {
+    id: 1,
+    name: "NICE",
+    x: -420,
+    y: -240,
+    src: "https://framerusercontent.com/images/IE5Tqwv8aWKS7BlCr18LMGXF3Ms.png",
+  },
+  {
+    id: 2,
+    name: "Latitude",
+    x: 180,
+    y: -280,
+    src: "https://framerusercontent.com/images/mPdjsbMyHYgUqRGovzpmzpE64.png",
+  },
+  {
+    id: 3,
+    name: "Salesforce",
+    x: -360,
+    y: 0,
+    src: "https://framerusercontent.com/images/qMGqgg7fcxVsSfRvUYFbfZ1fVxE.png",
+  },
+  {
+    id: 4,
+    name: "Fiserv",
+    x: 0,
+    y: 280,
+    src: "https://framerusercontent.com/images/FvajenQKWnoU1A42FCA09d9I3g.png",
+  },
+  {
+    id: 5,
+    name: "Enova",
+    x: -280,
+    y: -140,
+    src: "https://framerusercontent.com/images/ya1Ki8apcD5chKEopqTgx0v2OU.png",
+  },
+  {
+    id: 6,
+    name: "Cloud",
+    x: 320,
+    y: -120,
+    src: "https://framerusercontent.com/images/ImqjsWOEttlFkvAaymtXxTaaDf0.png",
+  },
+  {
+    id: 7,
+    name: "Star",
+    x: 380,
+    y: 220,
+    src: "https://framerusercontent.com/images/w89lnPXzPq5HLEB0pb8G6N0zqVc.png",
+  },
+  {
+    id: 8,
+    name: "BlueLogo",
+    x: 420,
+    y: -10,
+    src: "https://framerusercontent.com/images/ya1Ki8apcD5chKEopqTgx0v2OU.png",
+  },
+  {
+    id: 9,
+    name: "Other",
+    x: -320,
+    y: 240,
+    src: "https://framerusercontent.com/images/AmY95qWYEiJlJGQeMmeBeLZKF4.png",
+  },
+  {
+    id: 10,
+    name: "Logo10",
+    x: -120,
+    y: -320,
+    src: "https://framerusercontent.com/images/VMEaLbIAn2wqXxQVtJzTsQPomqg.png",
+  },
+];
+
+export const RANGES = {
+  TEXT: [0.3, 0.4],
+  LOGOS_MOVE: [0.3, 0.48],
+  LOGOS_FADE: [0.45, 0.52, 0.62],
+  BG_SHRINK: [0.52, 0.6],
+  BG_SHADOW: [0.55, 0.65],
+  FINAL_CONTENT: [0.55, 0.62],
+  LINES: [0.25, 0.45],
+};

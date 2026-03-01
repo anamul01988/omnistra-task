@@ -1,14 +1,5 @@
-import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import IntegrationsSection from "./components/IntegrationsSection";
+import Home from "./pages/Home/Home";
 
 export default function App() {
-  return (
-    <div className="min-h-screen bg-black text-white overflow-x-hidden">
-      <Navbar />
-      <Hero />
-      <IntegrationsSection />
-      <div className="h-[100vh] w-full bg-black"></div>
-    </div>
-  );
+  return <Home />;
 }

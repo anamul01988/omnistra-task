@@ -1,8 +1,8 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { productItems, simpleMenus } from "../data/navData";
-import Logo from "./Logo";
-import { ArrowIcon } from "./ArrowIcon";
-import { NavTag } from "./NavTag";
+import { productItems, simpleMenus } from "../../data/navData";
+import Logo from "../ui/Logo";
+import { ArrowIcon } from "../ui/ArrowIcon";
+import { NavTag } from "../ui/NavTag";
 import { useState } from "react";
 
 function MobileSeparator() {

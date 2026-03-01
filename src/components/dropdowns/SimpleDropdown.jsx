@@ -1,4 +1,4 @@
-import { DropdownShell } from "./DropdownShell";
+import { DropdownShell } from "../ui/DropdownShell";
 
 export default function SimpleDropdown({ isOpen, links, isLight }) {
   const linkColors = isLight
