@@ -5,6 +5,7 @@ A high-fidelity implementation of the Omnistra Integrations section and dynamic 
 ## 🚀 Live Demo & Repository
 
 - **GitHub Repository:** [https://github.com/anamul01988/omnistra-task](https://github.com/anamul01988/omnistra-task)
+- **Live Demo:** [https://omnistra-task.vercel.app](https://omnistra-task.vercel.app)
 
 ---
 
