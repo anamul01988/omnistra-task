@@ -8,6 +8,9 @@ import { ArrowIcon } from "../ui/ArrowIcon";
 import NavButton from "../ui/NavButton";
 import { simpleMenus, menuConfig } from "../../data/navData";
 
+// Custom Hooks
+import { useEventListener } from "../../hooks/useEventListener";
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [hovered, setHovered] = useState(false);
@@ -18,52 +21,35 @@ export default function Navbar() {
 
   const isPill = scrolled || hovered;
 
-  useEffect(() => {
-    const onScroll = () => {
-      const scrollY = window.scrollY;
-      setScrolled(scrollY > 20);
-
-      const integrations = document.getElementById("integrations-section");
-      if (integrations) {
-        const rect = integrations.getBoundingClientRect();
-        // Light mode if section is within top half of viewport
-        setIsLight(rect.top < 100 && rect.bottom > 100);
-      } else {
-        setIsLight(false);
-      }
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
-    return () => window.removeEventListener("scroll", onScroll);
+  // 1. Handlers
+  const handleScroll = useCallback(() => {
+    setScrolled(window.scrollY > 20);
+    const integrations = document.getElementById("integrations-section");
+    if (integrations) {
+      const rect = integrations.getBoundingClientRect();
+      setIsLight(rect.top < 100 && rect.bottom > 100);
+    } else {
+      setIsLight(false);
+    }
   }, []);
 
-  useEffect(() => {
-    const onOutsideClick = (e) => {
-      if (!e.target.closest("[data-nav-item]")) setOpenMenu(null);
-    };
-    document.addEventListener("mousedown", onOutsideClick);
-    return () => document.removeEventListener("mousedown", onOutsideClick);
-  }, []);
+  // 2. Custom Hooks (Cleaner way to handle events)
+  useEventListener("scroll", handleScroll);
+  useEventListener(
+    "resize",
+    () => window.innerWidth >= 768 && setMobileOpen(false),
+  );
+  useEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      setOpenMenu(null);
+      setMobileOpen(false);
+    }
+  });
+  useEventListener("mousedown", (e) => {
+    if (!e.target.closest("[data-nav-item]")) setOpenMenu(null);
+  });
 
-  useEffect(() => {
-    const onResize = () => {
-      if (window.innerWidth >= 768) setMobileOpen(false);
-    };
-    window.addEventListener("resize", onResize);
-    return () => window.removeEventListener("resize", onResize);
-  }, []);
-
-  useEffect(() => {
-    const onEsc = (e) => {
-      if (e.key === "Escape") {
-        setOpenMenu(null);
-        setMobileOpen(false);
-      }
-    };
-    document.addEventListener("keydown", onEsc);
-    return () => document.removeEventListener("keydown", onEsc);
-  }, []);
-
+  useEffect(() => handleScroll(), [handleScroll]);
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
   }, [mobileOpen]);
