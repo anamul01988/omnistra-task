@@ -24,13 +24,19 @@ const BrandIcon = ({ opacity, scale }) => (
   </motion.div>
 );
 
-const LogoCard = ({ item, progress, scale, opacity, distanceFactor }) => {
+const LogoCard = ({
+  integration,
+  progress,
+  scale,
+  opacity,
+  distanceFactor,
+}) => {
   const x = useTransform(progress, RANGES.LOGOS_MOVE, [
-    item.x * distanceFactor,
+    integration.x * distanceFactor,
     0,
   ]);
   const y = useTransform(progress, RANGES.LOGOS_MOVE, [
-    item.y * distanceFactor,
+    integration.y * distanceFactor,
     0,
   ]);
 
@@ -41,8 +47,8 @@ const LogoCard = ({ item, progress, scale, opacity, distanceFactor }) => {
     >
       <div className="bg-white p-5 md:p-6 rounded-[32px] shadow-xl w-20 h-20 md:w-36 md:h-36 flex items-center justify-center border border-white transition-all transform hover:rotate-6">
         <img
-          src={item.src}
-          alt={item.name}
+          src={integration.src}
+          alt={integration.name}
           className="w-full h-full object-contain"
         />
       </div>
@@ -150,13 +156,13 @@ const IntegrationsSection = () => {
                 <stop offset="100%" stopColor="#cfdfff" stopOpacity="0.8" />
               </linearGradient>
             </defs>
-            {INTEGRATIONS.map((item) => (
+            {INTEGRATIONS.map((integration) => (
               <line
-                key={`line-${item.id}`}
+                key={`line-${integration.id}`}
                 x1="50%"
                 y1="50%"
-                x2={`calc(50% + ${item.x * distanceFactor}px)`}
-                y2={`calc(50% + ${item.y * distanceFactor}px)`}
+                x2={`calc(50% + ${integration.x * distanceFactor}px)`}
+                y2={`calc(50% + ${integration.y * distanceFactor}px)`}
                 stroke="url(#lineGrad)"
                 strokeWidth="1.5"
                 strokeDasharray="4 6"
@@ -192,10 +198,10 @@ const IntegrationsSection = () => {
           </motion.div>
 
           <div className="absolute inset-0 pointer-events-none">
-            {INTEGRATIONS.map((item) => (
+            {INTEGRATIONS.map((integration) => (
               <LogoCard
-                key={item.id}
-                item={item}
+                key={integration.id}
+                integration={integration}
                 progress={smoothProgress}
                 scale={logoScale}
                 opacity={logoOpacity}

@@ -52,38 +52,79 @@ The output will be in the `dist/` folder.
 
 ---
 
-## ✨ Key Features & Implementation Details
+## 🏗️ Code Quality & Architecture
 
-### 1. Pixel-Accurate Animations
+This project was built with a focus on maintainability, performance, and high-fidelity aesthetics. Here’s how the review criteria were addressed:
 
-- **Logo Convergence:** 10 floating integration icons converge into a single centered button as the user scrolls.
-- **Dynamic Background:** The section background shrinks and transforms into a rounded button-like container with a premium glow effect.
-- **Scroll Synchronization:** Used `useScroll` and `useTransform` with a `useSpring` filter to ensure silky-smooth movement that feels physical and responsive.
+### 📂 Folder Structure
 
-### 2. Smart Navigation System
+- **`src/components/layout`**: Persistent UI elements like `Navbar` and `MobileMenu`.
+- **`src/components/sections`**: Page-level sections such as `Hero` and `IntegrationsSection`.
+- **`src/components/ui`**: Atomic, reusable components (e.g., `Logo`, `NavTag`, `ArrowIcon`).
+- **`src/components/dropdowns`**: Complex navigation dropdowns separated for clarity.
+- **`src/data`**: Centralized configuration files for navigation and integration data, ensuring a "data-driven" UI.
 
-- **Context-Aware Theming:** The Navbar automatically detects when it is over a light-colored section (like the Integrations area) and switches its theme (colors, logo, and dropdowns) from dark to light for perfect visibility.
-- **Micro-interactions:** Smooth hover transitions on the navigation "pill", laser-border effects on buttons, and animated dropdown shells.
+### 🧩 Component Architecture
 
-### 3. Component Architecture
+- **Composition over Inheritance**: Used component composition (e.g., `DropdownShell`) to wrap varied content while maintaining consistent animation and styling logic.
+- **Dumb vs. Smart Components**: Sections handle logic (scroll tracking, state), while UI components focus on presentation.
 
-- **Reusability:** Extracted core UI patterns into standalone components like `LogoCard`, `BrandIcon`, `DropdownShell`, and `NavButton`.
-- **Clean Code:** Followed modern React patterns, removed unnecessary comments, and centralized animation constants for maintainability.
+### ♻️ Reusability
+
+- **Dynamic Theming**: The `isLight` prop is propagated through the component tree, allowing the entire navigation system to flip themes based on the background.
+- **Utility Components**: Standardized elements like `ArrowIcon` and `NavTag` are used across both Desktop and Mobile views.
+
+### 🧹 Clean Code Practices
+
+- **ES6+ Standards**: Extensive use of destructuring, arrow functions, and modern JavaScript features.
+- **Prop Logic**: Used descriptive prop names and avoided "prop drilling" by keeping state localized or using composition.
+- **CSS-in-JS (Tailwind)**: Leveraged Tailwind 4 for utility-first styling, combined with CSS variables for complex properties like custom `@property` laser animations.
+
+### 🏷️ Naming Conventions
+
+- **PascalCase** for components and files.
+- **camelCase** for variables, functions, and props.
+- **BEM-inspired** class names for custom CSS in `index.css` (e.g., `.btn-premium--primary`).
+
+### ⚡ Performance Considerations
+
+- **`useCallback` & `useMemo`**: Utilized to prevent unnecessary re-renders in the `Navbar` and complex list renderings.
+- **Passive Listeners**: Scroll listeners are marked as `{ passive: true }` to avoid blocking the main thread.
+- **SVG Optimization**: All icons are inline SVGs, reducing HTTP requests and ensuring infinite scalability.
+
+### 📱 Responsiveness Strategy
+
+- **`distanceFactor`**: A dynamic multiplier that scales the Integration Section's animation based on the viewport width.
+- **Fluid Typography**: Used `clamp()` and `vw` units for headings to ensure content fits perfectly on everything from an iPhone SE to a Pro Display XDR.
+- **Custom Breakpoints**: Tailored Tailwind breakpoints to handle intermediate states between mobile and desktop gracefully.
 
 ---
 
-## 📝 Assumptions & Decisions
+## 🧠 Implementation Assumptions
 
-- **Scroll Range:** The animation sequence is mapped to approximately 30%–60% of the section's scroll progress to ensure it completes while the section is fully visible in the viewport.
-- **Responsive Offsets:** Logo starting positions (x/y) are calculated relative to the center. While fixed on desktop for pixel accuracy, they use `max-width` constraints to remain centered and safe on mobile viewports.
-- **Font Families:** Integrated `Montserrat` for headings and `Inter` for body text to match the premium design aesthetic.
-- **Header Height:** Assumed a 4.5rem (72px) header height for scroll-offset calculations.
+1.  **Scroll Intent**: I assumed that the convergence animation should feel like a "reward" for scrolling, so it is synchronized with the natural scroll speed using `framer-motion` springs.
+2.  **Navigation Density**: Assumed that "Schedule a Demo" is the primary CTA when the navbar is in its "pill" state, prioritizing conversion.
+3.  **Font Substitution**: While the original design called for **Helvetica**, it was replaced with **Montserrat** (for headings/buttons) and **Inter** (for body/nav items) to ensure the project remains open-source friendly while maintaining a similar premium geometric aesthetic.
+4.  **Color Space**: Used the P3 color-compatible hex codes from the reference to ensure colors pop on modern displays.
 
 ---
 
 ## 📸 Screenshots
 
-_(Include screenshots in your final submission repo to highlight responsive states)_
+### Desktop & Tablet Views
+
+| Desktop Hero                                           | Tablet View                                       | Integration Animation                                                   |
+| :----------------------------------------------------- | :------------------------------------------------ | :---------------------------------------------------------------------- |
+| ![Desktop Hero](./public/screenshots/desktop-hero.png) | ![Tablet View](./public/screenshots/tab-view.png) | ![Integration Animation](./public/screenshots/desktop-integrations.png) |
+
+### Mobile Navigation
+
+| Mobile Menu                                                 | Product Sub-menu                                                                   |
+| :---------------------------------------------------------- | :--------------------------------------------------------------------------------- |
+| ![Mobile Menu](./public/screenshots/mobile-drawer-view.png) | ![Product Sub-menu](./public/screenshots/mobile-drawer-product-submenu-drawer.png) |
+
+> [!TIP]
+> **Pro Tip:** Try scrolling slowly through the Integrations section to see the "spring" physics in action!
 
 ---
 

@@ -75,3 +75,12 @@ export const simpleMenus = [
     links: ["Who we are", "Brand", "Become a Partner", "Careers", "Contact us"],
   },
 ];
+
+export const menuConfig = [
+  { id: "product", label: "Product", type: "dropdown" },
+  { id: "customers", label: "Customers", type: "simple" },
+  { id: "pricing", label: "Pricing", type: "link", href: "#" },
+  { id: "integrations", label: "Integrations", type: "simple" },
+  { id: "resources", label: "Resources", type: "simple" },
+  { id: "company", label: "Company", type: "simple" },
+];

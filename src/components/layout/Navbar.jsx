@@ -5,38 +5,8 @@ import ProductDropdown from "../dropdowns/ProductDropdown";
 import SimpleDropdown from "../dropdowns/SimpleDropdown";
 import MobileMenu from "./MobileMenu";
 import { ArrowIcon } from "../ui/ArrowIcon";
-import { simpleMenus } from "../../data/navData";
-
-const menuConfig = [
-  { id: "product", label: "Product", type: "dropdown" },
-  { id: "customers", label: "Customers", type: "simple" },
-  { id: "pricing", label: "Pricing", type: "link", href: "#" },
-  { id: "integrations", label: "Integrations", type: "simple" },
-  { id: "resources", label: "Resources", type: "simple" },
-  { id: "company", label: "Company", type: "simple" },
-];
-
-function NavButton({ label, onClick, isActive, isLink, href, isLight }) {
-  const baseStyles =
-    "inline-flex items-center gap-[0.375rem] p-[0.625em] rounded-full text-[0.8125rem] font-medium uppercase transition-all duration-300 whitespace-nowrap relative font-sans";
-
-  const activeStyles = isLight
-    ? isActive
-      ? "text-[#0145f2]"
-      : "text-[#08144f]/60 hover:text-[#08144f]"
-    : isActive
-      ? "text-white"
-      : "text-[#ffffff] hover:text-white";
-
-  const Element = isLink ? "a" : "button";
-  const behavior = isLink ? { href } : { onClick };
-
-  return (
-    <Element {...behavior} className={`${baseStyles} ${activeStyles}`}>
-      {label}
-    </Element>
-  );
-}
+import NavButton from "../ui/NavButton";
+import { simpleMenus, menuConfig } from "../../data/navData";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
