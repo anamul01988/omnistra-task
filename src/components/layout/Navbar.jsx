@@ -120,7 +120,7 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`fixed left-0 right-0 z-[1000] flex items-center justify-center px-[1.5rem] h-[4.5rem] transition-all duration-700 ${isPill ? "top-[0.5rem]" : "top-0"}`}
+        className={`fixed left-0 right-0 z-[1000] flex items-center justify-center px-[1.5rem] h-[4.5rem] transition-all duration-700 ${isPill ? "top-[0rem]" : "top-[0.5rem]"}`}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
       >
