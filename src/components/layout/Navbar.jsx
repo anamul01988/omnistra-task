@@ -67,7 +67,7 @@ export default function Navbar() {
     setOpenMenu((prev) => (prev === id ? null : id));
   }, []);
 
-  const containerClasses = `navbar-container ${isPill ? "navbar-container--pill" : ""} ${isLight ? "navbar-container--light" : ""}`;
+  const containerClasses = `navbar-container ${isPill ? "navbar-container--pill navbar-blur-v2" : ""} ${isLight ? "navbar-container--light navbar-blur-v2" : ""}`;
 
   const navInnerBg = isLight ? "bg-black/5" : "bg-white/10";
   const navInnerBorder = isLight ? "border-black/5" : "border-white/10";
