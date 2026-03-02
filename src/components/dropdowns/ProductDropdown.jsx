@@ -20,16 +20,16 @@ function ProductCard({ item, isLight }) {
         className="nav-card__img absolute bottom-[-2.5rem] left-0 w-full h-[18.75rem] object-cover product-card-mask"
       />
       <div className="relative z-10 w-full">
-        <div className="flex items-center gap-[0.5rem] mb-[1rem]">
+        <div className="flex items-center gap-[0.5rem] mb-[0.75rem]">
           <h3
-            className={`font-bold text-[0.875rem] tracking-tight ${textColor} mb-0`}
+            className={`font-bold text-[1rem] tracking-tight ${textColor} mb-0`}
           >
             {item.title}
           </h3>
           <NavTag tag={item.tag} />
         </div>
         <p
-          className={`text-[0.8125rem] leading-[1.6] ${descColor} max-w-full italic font-medium`}
+          className={`text-[0.875rem] leading-[1.6] ${descColor} max-w-full italic font-medium`}
         >
           {item.desc}
         </p>

@@ -179,7 +179,7 @@ export default function Navbar() {
               className={`btn-premium btn-premium--compact group text-[0.8125rem] ${isLight ? "text-[#08144f] border-[#08144f]/10" : ""}`}
             >
               <span>Sign In</span>
-              <span className="w-[0.8125rem] h-[0.8125rem] opacity-60 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+              <span className="w-[0.8125rem] h-[0.8125rem] opacity-60 transition-transform duration-200">
                 <ArrowIcon />
               </span>
             </a>
@@ -188,7 +188,7 @@ export default function Navbar() {
               className="btn-premium btn-premium--primary btn-premium--compact group font-black text-[0.8125rem]"
             >
               <span>{isPill ? "SCHEDULE A DEMO" : "Sign Up"}</span>
-              <span className="w-[0.8125rem] h-[0.8125rem] opacity-60 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+              <span className="w-[0.8125rem] h-[0.8125rem] opacity-60 transition-transform duration-200">
                 <ArrowIcon />
               </span>
             </a>
