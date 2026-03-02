@@ -10,27 +10,11 @@ const stats = [
 export default function Hero() {
   return (
     <main
-      className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden pt-[calc(72px+60px)] pb-[80px] bg-black"
-      style={{
-        background:
-          "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(61,127,255,0.07) 0%, transparent 70%), #000",
-      }}
+      className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden pt-[calc(72px+60px)] pb-[80px] hero-gradient-bg"
       id="pageHero"
     >
-      <div
-        className="absolute w-[500px] h-[500px] rounded-full pointer-events-none z-0 opacity-30 left-[-150px] top-[20%] blur-[100px]"
-        style={{
-          background:
-            "radial-gradient(circle, rgba(61,127,255,0.4), transparent 70%)",
-        }}
-      />
-      <div
-        className="absolute w-[500px] h-[500px] rounded-full pointer-events-none z-0 opacity-30 right-[-150px] top-[30%] blur-[100px]"
-        style={{
-          background:
-            "radial-gradient(circle, rgba(57,224,122,0.2), transparent 70%)",
-        }}
-      />
+      <div className="absolute w-[500px] h-[500px] rounded-full pointer-events-none z-0 opacity-30 left-[-150px] top-[20%] blur-[100px] hero-glow-blue" />
+      <div className="absolute w-[500px] h-[500px] rounded-full pointer-events-none z-0 opacity-30 right-[-150px] top-[30%] blur-[100px] hero-glow-green" />
 
       <div className="relative z-10 text-center max-w-[720px]">
         <motion.div
@@ -47,11 +31,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1, ease: [0.19, 1, 0.22, 1] }}
-          className="font-bold text-white leading-[1.1] tracking-[-0.04em] mb-6"
-          style={{
-            fontFamily: "var(--font-heading)",
-            fontSize: "clamp(40px, 7vw, 72px)",
-          }}
+          className="font-bold text-white leading-[1.1] tracking-[-0.04em] mb-6 hero-title-clamp font-sans"
         >
           Stop chargebacks.
           <br />
@@ -64,8 +44,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2, ease: [0.19, 1, 0.22, 1] }}
-          className="text-[#97a3b6] leading-[1.7] mb-10 mx-auto max-w-[560px]"
-          style={{ fontSize: "clamp(16px, 2vw, 19px)" }}
+          className="text-[#97a3b6] leading-[1.7] mb-10 mx-auto max-w-[560px] hero-p-clamp"
         >
           Omnistra's AI‑powered platform automates chargeback management so you
           can focus on growing your business, not fighting disputes.
@@ -101,10 +80,7 @@ export default function Hero() {
             <Fragment key={s.num}>
               {i > 0 && <div className="w-px h-10 bg-white/10" />}
               <div className="flex flex-col items-center gap-1">
-                <span
-                  className="text-[28px] font-bold text-white tracking-tight"
-                  style={{ fontFamily: "var(--font-heading)" }}
-                >
+                <span className="font-bold text-white tracking-tight hero-stat-num font-sans">
                   {s.num}
                 </span>
                 <span className="text-[12px] text-[#677489] font-bold tracking-widest uppercase">

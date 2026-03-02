@@ -36,8 +36,8 @@ const LogoCard = ({ item, progress, scale, opacity, distanceFactor }) => {
 
   return (
     <motion.div
-      style={{ x, y, scale, opacity, left: "50%", top: "50%" }}
-      className="absolute -translate-x-1/2 -translate-y-1/2"
+      style={{ x, y, scale, opacity }}
+      className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
     >
       <div className="bg-white p-5 md:p-6 rounded-[32px] shadow-xl w-20 h-20 md:w-36 md:h-36 flex items-center justify-center border border-white transition-all transform hover:rotate-6">
         <img
@@ -170,10 +170,7 @@ const IntegrationsSection = () => {
             style={{ opacity: textOpacity, scale: textScale, y: textY }}
             className="text-center px-6 max-w-4xl"
           >
-            <h2
-              style={{ fontFamily: "var(--font-heading)" }}
-              className="text-[44px] md:text-[68px] font-bold tracking-tight text-[#08144f] mb-8 leading-[1.05]"
-            >
+            <h2 className="text-[44px] md:text-[68px] font-bold tracking-tight text-[#08144f] mb-8 leading-[1.05] font-sans">
               One platform, <br />
               <span className="text-[#0145f2]">unlimited integrations</span>
             </h2>

@@ -21,7 +21,7 @@ function MobileSection({ label, children }) {
     <div className="flex flex-col">
       <button
         onClick={() => setOpen((o) => !o)}
-        className="flex items-center justify-between px-[1rem] py-[0.75rem] text-[0.875rem] font-bold text-white uppercase tracking-[0.05em]"
+        className="flex items-center justify-between px-[1rem] py-[0.75rem] text-[12px] font-bold text-white uppercase tracking-[0.05em] font-sans"
       >
         <span>{label}</span>
         <motion.span
@@ -57,11 +57,7 @@ export default function MobileMenu({ isOpen, setOpen }) {
           initial={{ opacity: 0, y: "-1rem" }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: "-1rem" }}
-          className="fixed inset-0 z-[2000] overflow-y-auto bg-black flex flex-col pt-[1.5rem] px-[1.5rem]"
-          style={{
-            backdropFilter: "blur(2rem)",
-            WebkitBackdropFilter: "blur(2rem)",
-          }}
+          className="fixed inset-0 z-[2000] overflow-y-auto bg-black flex flex-col pt-[1.5rem] px-[1.5rem] mobile-menu-glass"
         >
           <div className="flex items-center justify-between mb-[2rem]">
             <Logo isHeaderHovered={true} />
@@ -136,7 +132,7 @@ export default function MobileMenu({ isOpen, setOpen }) {
                     <a
                       key={link}
                       href="#"
-                      className="text-[#97a3b6] hover:text-white uppercase tracking-wider font-semibold text-[0.8125rem] py-2 px-2 transition-colors"
+                      className="text-[#97a3b6] hover:text-white uppercase tracking-wider font-semibold text-[12px] py-2 px-2 transition-colors font-sans"
                     >
                       {link}
                     </a>

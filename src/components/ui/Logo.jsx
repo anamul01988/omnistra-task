@@ -19,8 +19,7 @@ export default function OmnistraLogo({ isHeaderHovered, forceDark }) {
       </span>
       {!isHeaderHovered && (
         <span
-          className={`text-[1.125rem] font-bold tracking-[-0.03em] ${colorClass}`}
-          style={{ fontFamily: "var(--font-heading)" }}
+          className={`text-[1.125rem] font-bold tracking-[-0.03em] ${colorClass} font-sans`}
         >
           chargeflow
         </span>

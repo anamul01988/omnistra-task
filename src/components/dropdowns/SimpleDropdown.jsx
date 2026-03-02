@@ -15,7 +15,7 @@ export default function SimpleDropdown({ isOpen, links, isLight }) {
         <a
           key={label}
           href="#"
-          className={`block px-[1rem] py-[0.625rem] text-[0.8125rem] font-medium rounded-[0.75rem] whitespace-nowrap transition-all duration-300 ${linkColors}`}
+          className={`block px-[1rem] py-[0.625rem] text-[12px] font-medium rounded-[0.75rem] whitespace-nowrap transition-all duration-300 ${linkColors} font-sans`}
         >
           {label}
         </a>

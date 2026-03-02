@@ -18,7 +18,7 @@ const menuConfig = [
 
 function NavButton({ label, onClick, isActive, isLink, href, isLight }) {
   const baseStyles =
-    "inline-flex items-center gap-[0.375rem] p-[0.625em] rounded-full text-[0.6875rem] font-bold uppercase tracking-[0.05em] transition-all duration-300 whitespace-nowrap relative";
+    "inline-flex items-center gap-[0.375rem] p-[0.625em] rounded-full text-[12px] font-medium uppercase transition-all duration-300 whitespace-nowrap relative font-sans";
 
   const activeStyles = isLight
     ? isActive
@@ -26,17 +26,13 @@ function NavButton({ label, onClick, isActive, isLink, href, isLight }) {
       : "text-[#08144f]/60 hover:text-[#08144f]"
     : isActive
       ? "text-white"
-      : "text-[#97a3b6] hover:text-white";
+      : "text-[#ffffff] hover:text-white";
 
   const Element = isLink ? "a" : "button";
   const behavior = isLink ? { href } : { onClick };
 
   return (
-    <Element
-      {...behavior}
-      className={`${baseStyles} ${activeStyles}`}
-      style={{ fontFamily: "var(--font-heading)" }}
-    >
+    <Element {...behavior} className={`${baseStyles} ${activeStyles}`}>
       {label}
     </Element>
   );
@@ -115,25 +111,7 @@ export default function Navbar() {
     setOpenMenu((prev) => (prev === id ? null : id));
   }, []);
 
-  const shellStyles = {
-    maxWidth: isPill ? "80em" : "100em",
-    padding: isPill ? "0.5rem 1rem" : "0 1.25rem",
-    background: isLight
-      ? "rgba(255, 255, 255, 0.9)"
-      : isPill
-        ? "rgba(0,0,0,0.6)"
-        : "transparent",
-    backdropFilter: isPill || isLight ? "blur(1.5rem)" : "none",
-    WebkitBackdropFilter: isPill || isLight ? "blur(1.5rem)" : "none",
-    border: isLight
-      ? "1px solid rgba(0, 0, 0, 0.08)"
-      : isPill
-        ? "1px solid rgba(255,255,255,0.1)"
-        : "none",
-    borderRadius: isPill ? "1.5rem" : "0",
-    transition: "all 0.6s cubic-bezier(0.19, 1, 0.22, 1)",
-    margin: "0 auto",
-  };
+  const containerClasses = `navbar-container ${isPill ? "navbar-container--pill" : ""} ${isLight ? "navbar-container--light" : ""}`;
 
   const navInnerBg = isLight ? "bg-black/5" : "bg-white/10";
   const navInnerBorder = isLight ? "border-black/5" : "border-white/10";
@@ -142,18 +120,12 @@ export default function Navbar() {
   return (
     <>
       <header
-        className="fixed left-0 right-0 z-[1000] flex items-center justify-center px-[1.5rem]"
-        style={{
-          top: isPill ? "0.5rem" : "0",
-          height: "4.5rem",
-          transition: "top 0.6s cubic-bezier(0.19, 1, 0.22, 1)",
-        }}
+        className={`fixed left-0 right-0 z-[1000] flex items-center justify-center px-[1.5rem] h-[4.5rem] transition-all duration-700 ${isPill ? "top-[0.5rem]" : "top-0"}`}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
       >
         <div
-          className="flex items-center justify-between w-full h-[4rem] navbar-pill shadow-2xl transition-colors duration-500"
-          style={shellStyles}
+          className={`flex items-center justify-between w-full h-[4rem] navbar-pill transition-colors duration-500 ${containerClasses}`}
         >
           <Logo isHeaderHovered={hovered || isLight} forceDark={isLight} />
 

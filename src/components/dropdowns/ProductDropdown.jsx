@@ -17,13 +17,7 @@ function ProductCard({ item, isLight }) {
       <img
         src={item.imgUrl}
         alt=""
-        className="nav-card__img absolute bottom-[-2.5rem] left-0 w-full h-[18.75rem] object-cover"
-        style={{
-          WebkitMaskImage:
-            "radial-gradient(circle at center 70%, black 10%, transparent 85%)",
-          maskImage:
-            "radial-gradient(circle at center 70%, black 10%, transparent 85%)",
-        }}
+        className="nav-card__img absolute bottom-[-2.5rem] left-0 w-full h-[18.75rem] object-cover product-card-mask"
       />
       <div className="relative z-10 w-full">
         <div className="flex items-center gap-[0.5rem] mb-[1rem]">
