@@ -100,7 +100,7 @@ export default function MobileMenu({ isOpen, setOpen }) {
 
           <MobileSeparator />
 
-          <div className="flex flex-col mt-[1rem]">
+          <div className="flex flex-col">
             <MobileSection label="Product">
               <div className="flex flex-col gap-2">
                 {productItems.map((item) => (

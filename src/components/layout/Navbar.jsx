@@ -18,7 +18,7 @@ const menuConfig = [
 
 function NavButton({ label, onClick, isActive, isLink, href, isLight }) {
   const baseStyles =
-    "inline-flex items-center gap-[0.375rem] p-[0.625em] rounded-full text-[12px] font-medium uppercase transition-all duration-300 whitespace-nowrap relative font-sans";
+    "inline-flex items-center gap-[0.375rem] p-[0.625em] rounded-full text-[0.8125rem] font-medium uppercase transition-all duration-300 whitespace-nowrap relative font-sans";
 
   const activeStyles = isLight
     ? isActive
@@ -176,19 +176,19 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-[1rem] ml-auto">
             <a
               href="#"
-              className={`btn-premium btn-premium--compact group text-[12px] ${isLight ? "text-[#08144f] border-[#08144f]/10" : ""}`}
+              className={`btn-premium btn-premium--compact group text-[0.8125rem] ${isLight ? "text-[#08144f] border-[#08144f]/10" : ""}`}
             >
               <span>Sign In</span>
-              <span className="w-[12px] h-[12px] opacity-60 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+              <span className="w-[0.8125rem] h-[0.8125rem] opacity-60 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
                 <ArrowIcon />
               </span>
             </a>
             <a
               href="#"
-              className="btn-premium btn-premium--primary btn-premium--compact group font-black text-[12px]"
+              className="btn-premium btn-premium--primary btn-premium--compact group font-black text-[0.8125rem]"
             >
               <span>{isPill ? "SCHEDULE A DEMO" : "Sign Up"}</span>
-              <span className="w-[12px] h-[12px] opacity-60 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+              <span className="w-[0.8125rem] h-[0.8125rem] opacity-60 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
                 <ArrowIcon />
               </span>
             </a>
