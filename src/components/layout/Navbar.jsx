@@ -127,10 +127,10 @@ export default function Navbar() {
         <div
           className={`flex items-center justify-between w-full h-[4rem] navbar-pill transition-colors duration-500 ${containerClasses}`}
         >
-          <Logo isHeaderHovered={hovered || isLight} forceDark={isLight} />
+          <Logo isHeaderHovered={isPill || isLight} forceDark={isLight} />
 
           <nav
-            className={`hidden md:flex flex-1 justify-center absolute left-1/2 -translate-x-1/2 ${navInnerBg} px-[0.625em] rounded-full border ${navInnerBorder} transition-colors duration-500`}
+            className={`hidden md:flex flex-1 justify-center absolute left-1/2 -translate-x-1/2 ${!isPill ? `${navInnerBg} border ${navInnerBorder}` : ""} px-[0.625em] rounded-full transition-colors duration-500`}
           >
             {menuConfig.map((item) => (
               <div
@@ -176,7 +176,7 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-[1rem] ml-auto">
             <a
               href="#"
-              className={`btn-premium btn-premium--compact group ${isLight ? "text-[#08144f] border-[#08144f]/10" : ""}`}
+              className={`btn-premium btn-premium--compact group text-[12px] ${isLight ? "text-[#08144f] border-[#08144f]/10" : ""}`}
             >
               <span>Sign In</span>
               <span className="w-[12px] h-[12px] opacity-60 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
@@ -185,9 +185,9 @@ export default function Navbar() {
             </a>
             <a
               href="#"
-              className="btn-premium btn-premium--primary btn-premium--compact group font-black"
+              className="btn-premium btn-premium--primary btn-premium--compact group font-black text-[12px]"
             >
-              <span>Sign Up</span>
+              <span>{isPill ? "SCHEDULE A DEMO" : "Sign Up"}</span>
               <span className="w-[12px] h-[12px] opacity-60 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
                 <ArrowIcon />
               </span>
